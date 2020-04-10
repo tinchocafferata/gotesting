@@ -13,7 +13,9 @@ jobs:
    - run: echo ${DOCKER_REPO} #Value is masked
    - run: echo ${CIRCLE_PROJECT_REPONAME} #Value is masked
    - run: echo ${GOPATH} #Resolves to /go
-   - run: echo ${GOROOT} #Resolves to /usr/local/go
+   - run: echo ${GOROOT} #Not set, prints empty value but should point to /usr/local/go
+   - run: export GOROOT="/usr/local/go"
+   - run: echo ${GOROOT} #Now resolves to /usr/local/go
    - run: echo ${GOPATH_HEAD} #Not set, prints empty value
 
    - run: go env
