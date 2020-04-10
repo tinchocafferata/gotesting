@@ -14,7 +14,7 @@ jobs:
    - run: echo ${CIRCLE_PROJECT_REPONAME}
    - run: echo ${GOPATH}
    - run: echo ${GOPATH_HEAD}
-   - run: ls -l "${GOPATH}/bin"
+   - run: ls -l /go/bin
    - run: go build main.go
    - run: go env
    - run: ls /usr/local/go/bin
