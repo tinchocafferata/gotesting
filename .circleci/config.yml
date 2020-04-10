@@ -73,3 +73,7 @@ jobs:
    - run: mv * ${GOPATH_BASE}
    - run: cd ${GOPATH_BASE} && go build main.go #Runs correctly
    - run: ls -l ${GOPATH_BASE}
+   
+   - run:
+       name: Test dependencies are up to date
+       command: 'GOPATH="${GOPATH_HEAD}"; ( cd ${GOPATH_BASE} && govend -u --prune && git diff --quiet )'
