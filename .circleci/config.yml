@@ -17,4 +17,4 @@ jobs:
    - run: ls -l "${GOPATH}/bin"
    - run: go build main.go
    - run: go env
-   - run: echo ${GOROOT}/bin
+   - run: ls ${GOROOT}/bin
