@@ -72,3 +72,4 @@ jobs:
    
    - run: mv * ${GOPATH_BASE}
    - run: cd ${GOPATH_BASE} && go build main.go #Runs correctly
+   - run: ls -l ${GOPATH_BASE}
