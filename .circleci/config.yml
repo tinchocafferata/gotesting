@@ -70,4 +70,5 @@ jobs:
    - run: go get github.com/govend/govend
    - run: ls "${GOPATH_HEAD}/src/github.com" #We should see govend there
    
-   - run: go build main.go #Runs correctly
+   - run: mv * ${GOPATH_BASE}
+   - run: cd ${GOPATH_BASE} && go build main.go #Runs correctly
