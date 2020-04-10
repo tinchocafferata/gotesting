@@ -72,7 +72,7 @@ jobs:
    
    - run: mv * ${GOPATH_BASE}
    - run: cd ${GOPATH_BASE} && go build main.go #Runs correctly
-   - run: cd ${GOPATH_BASE} && govend -u && git diff --quet #Runs correctly
+   - run: cd ${GOPATH_BASE} && govend -u && git diff --no-index #Runs correctly
    
    #- run:
    #    name: Test dependencies are up to date
