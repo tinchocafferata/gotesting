@@ -24,6 +24,8 @@ jobs:
    # Each step is run under its own bash command, so the value is not available to other steps
    # - run: export GOROOT="/usr/local/go"
    # One method of carrying environment variables to other steps is to save them on a file
+   # $BASH_ENV is just a file that runs when the a bash session starts, so we append the export command
+   # Refer to the docs for details on this: https://circleci.com/docs/2.0/env-vars/
    - run: echo 'export GOROOT="/usr/local/go"' >> $BASH_ENV
    - run: echo ${GOROOT} #Now resolves to /usr/local/go
    - run: echo $BASH_ENV
