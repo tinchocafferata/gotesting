@@ -14,4 +14,4 @@ jobs:
    - run: echo ${CIRCLE_PROJECT_REPONAME}
    - run: echo ${GOPATH}
    - run: echo ${GOPATH_HEAD}
-   - run: ls -l ${GOPATH}/bin
+   - run: ls -l ${GOPATH}
