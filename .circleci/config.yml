@@ -9,14 +9,25 @@ jobs:
   steps:
    - checkout
    - setup_remote_docker
+   #These environment variables are made available by CircleCI, either natively or
+   #due to them being set in the project properties
    - run: echo ${CIRCLE_PROJECT_USERNAME} #Value is masked
    - run: echo ${DOCKER_REPO} #Value is masked
    - run: echo ${CIRCLE_PROJECT_REPONAME} #Value is masked
+   #This one is already present in the container, most probably because it comes with the local installation of GO
    - run: echo ${GOPATH} #Resolves to /go
+   
+   ####################################################################################
+   #This one is shown when invoking "go env", but from the system it is not set
    - run: echo ${GOROOT} #Not set, prints empty value but should point to /usr/local/go
-   # - run: export GOROOT="/usr/local/go" //Does not work
+   
+   # Each step is run under its own bash command, so the value is not available to other steps
+   # - run: export GOROOT="/usr/local/go"
+   # One method of carrying environment variables to other steps is to save them on a file
    - run: echo 'export GOROOT="/usr/local/go"' >> $BASH_ENV
    - run: echo ${GOROOT} #Now resolves to /usr/local/go
+   - run: echo $BASH_ENV
+   ####################################################################################
    - run: echo ${GOPATH_HEAD} #Not set, prints empty value
 
    - run: go env
