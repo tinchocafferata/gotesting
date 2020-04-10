@@ -11,3 +11,4 @@ jobs:
    - setup_remote_docker
    - run: ls -l
    - run: echo ${GOPATH}
+   - run: ls -l ${GOPATH}
