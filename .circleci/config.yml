@@ -68,6 +68,6 @@ jobs:
    - run: mkdir -p "${GOPATH_HEAD}/bin"
    
    - run: go get github.com/govend/govend
-   - run: ls "${GOPATH_HEAD}/src" #We should see govend there
+   - run: ls "${GOPATH_HEAD}/src/github.com" #We should see govend there
    
    - run: go build main.go #Runs correctly
