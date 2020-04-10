@@ -21,4 +21,4 @@ jobs:
    - run: go build main.go #Runs correctly
    - run: go env
    - run: ls /usr/local/go/bin
-   - run: which go
+   - run: which go #Resolves to /usr/local/go/bin/go
