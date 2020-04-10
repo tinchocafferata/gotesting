@@ -9,12 +9,16 @@ jobs:
   steps:
    - checkout
    - setup_remote_docker
-   - run: echo ${CIRCLE_PROJECT_USERNAME}
-   - run: echo ${DOCKER_REPO}
-   - run: echo ${CIRCLE_PROJECT_REPONAME}
-   - run: echo ${GOPATH}
-   - run: echo ${GOPATH_HEAD}
-   - run: ls -l /go/bin
-   - run: go build main.go
+   - run: echo ${CIRCLE_PROJECT_USERNAME} #Value is masked
+   - run: echo ${DOCKER_REPO} #Value is masked
+   - run: echo ${CIRCLE_PROJECT_REPONAME} #Value is masked
+   - run: echo ${GOPATH} #Resolves to /go
+   - run: echo ${GOROOT} #Resolves to /usr/local/go
+   
+   - run: echo ${GOPATH_HEAD} #Not set, prints empty value
+   
+   - run: ls -l /go #Folder has "bin" and "src" subfolders, but are empty
+   - run: go build main.go #Runs correctly
    - run: go env
    - run: ls /usr/local/go/bin
+   - run: which go
