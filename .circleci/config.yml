@@ -63,8 +63,11 @@ jobs:
    
    #/go/src was an empty folder, so we create the subdirectories to the path /go/src/github.com/tinchocafferata
    - run: mkdir -p "${GOPATH_BASE}"
-   - run: ls "${GOPATH_HEAD}/src"
+   
    #/go/bin was an empty folder. The command creates the bin folder but it was already there (argument -p  prevents failure when directory already exists)
    - run: mkdir -p "${GOPATH_HEAD}/bin"
+   
+   - run: go get github.com/govend/govend
+   - run: ls "${GOPATH_HEAD}/src" #We should see govend there
    
    - run: go build main.go #Runs correctly
