@@ -10,7 +10,6 @@ jobs:
    - checkout
    - setup_remote_docker
    - run: echo ${CIRCLE_PROJECT_USERNAME}
-   - run: echo ${CIRCLE_REPO_USERNAME}
    - run: echo ${DOCKER_REPO}
    - run: echo ${CIRCLE_PROJECT_REPONAME}
    - run: echo ${GOPATH}
