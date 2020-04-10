@@ -9,6 +9,11 @@ jobs:
   steps:
    - checkout
    - setup_remote_docker
-   - run: ls -l
+   - run: echo ${CIRCLE_PROJECT_USERNAME}
+   - run: echo ${CIRCLE_REPO_USERNAME}
+   - run: echo ${DOCKER_REPO}
+   - run: echo ${CIRCLE_PROJECT_REPONAME}
    - run: echo ${GOPATH}
-   - run: ls -l ${GOPATH}
+   - run: echo ${GOPATH_HEAD}
+   - run: ls -l
+   - run: ls -l ${GOPATH}/bin
