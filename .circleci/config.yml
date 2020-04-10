@@ -61,4 +61,10 @@ jobs:
    - run: echo 'export DOCKER_REPO="$(if [ ${CIRCLE_PROJECT_USERNAME} == 'Securing-DevOps' ]; then echo securingdevops; else echo $DOCKER_USER; fi)"' >> $BASH_ENV
    - run: echo ${DOCKER_REPO}
    
+   #/go/src was an empty folder, so we create the subdirectories to the path /go/src/github.com/tinchocafferata
+   - run: mkdir -p "${GOPATH_BASE}"
+   - run: ls "${GOPATH_HEAD}/src"
+   #/go/bin was an empty folder. The command creates the bin folder but it was already there (argument -p  prevents failure when directory already exists)
+   - run: mkdir -p "${GOPATH_HEAD}/bin"
+   
    - run: go build main.go #Runs correctly
