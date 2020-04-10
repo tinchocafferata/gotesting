@@ -14,11 +14,23 @@ jobs:
    - run: echo ${CIRCLE_PROJECT_REPONAME} #Value is masked
    - run: echo ${GOPATH} #Resolves to /go
    - run: echo ${GOROOT} #Resolves to /usr/local/go
-   
    - run: echo ${GOPATH_HEAD} #Not set, prints empty value
-   
-   - run: ls -l /go #Folder has "bin" and "src" subfolders, but are empty
-   - run: go build main.go #Runs correctly
+
    - run: go env
-   - run: ls /usr/local/go/bin
+      # GOBIN=""
+      # GOCACHE="/home/circleci/.cache/go-build"
+      # GOEXE=""
+      # GOHOSTARCH="amd64"
+      # GOHOSTOS="linux"
+      # GOOS="linux"
+      # GOPATH="/go"
+      # GORACE=""
+      # GOROOT="/usr/local/go"
+      # GOTMPDIR=""
+      # GOTOOLDIR="/usr/local/go/pkg/tool/linux_amd64"
+
+   - run: ls ${GOROOT}/bin
+   - run: ls -l ${GOPATH} #Folder has "bin" and "src" subfolders, but are empty
    - run: which go #Resolves to /usr/local/go/bin/go
+   
+   - run: go build main.go #Runs correctly
