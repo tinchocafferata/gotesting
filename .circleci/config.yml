@@ -31,7 +31,6 @@ jobs:
    - run: echo ${GOROOT} #Now resolves to /usr/local/go
    - run: echo $BASH_ENV
    ####################################################################################
-   - run: echo ${GOPATH_HEAD} #Not set, prints empty value
 
    - run: go env
       # GOBIN=""
@@ -49,5 +48,10 @@ jobs:
    - run: ls ${GOROOT}/bin
    - run: ls -l ${GOPATH} #Folder has "bin" and "src" subfolders, but are empty
    - run: which go #Resolves to /usr/local/go/bin/go
+   
+   ####################################################################################
+   #Start setting the env vars that they invoicer used
+   - run: echo 'export GOPATH_HEAD="$(echo ${GOPATH}|cut -d ':' -f 1)"' >> $BASH_ENV
+   - run: echo ${GOPATH_HEAD} #Not set, prints empty value
    
    - run: go build main.go #Runs correctly
