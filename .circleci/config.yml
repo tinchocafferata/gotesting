@@ -15,3 +15,4 @@ jobs:
    - run: echo ${GOPATH}
    - run: echo ${GOPATH_HEAD}
    - run: ls -l ${GOPATH}
+   - run: go build hello.go
